@@ -1,0 +1,35 @@
+:host([theme~="asset-detail-list"]) [part='label']{
+    min-width : 30px;
+    align-self : center;
+    padding-bottom : 0.1rem;
+}
+
+:host([theme~="asset-detail-list"]) [part='input-field']{
+    background : transparent;
+    border-radius: 0px;
+}
+
+:host([theme~="asset-detail-list"]) .vaadin-text-field-container{
+    align-items : center;
+    flex-direction : row;
+}
+
+:host([theme~="asset-detail-list"]){
+    width : 30px;
+}
+
+:host([theme~="search-field"]) [part='input-field']{
+    background-color: #FFFFFF;
+    border-radius : 30px;
+    height : 40px;
+    width : 220px;
+}
+
+:host([theme~="search-field"]) [part='input-field']::after{
+    background-color: #FFFFFF;
+    border-radius : 30px;
+}
+
+:host([theme~="search-field"]) .vaadin-text-field-container{
+    margin-right : 25px;
+}

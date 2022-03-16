@@ -1,0 +1,4 @@
+:host([theme~="filter-tabs"]) [part='tabs']{
+    margin : 0;
+    width : 150px;
+}

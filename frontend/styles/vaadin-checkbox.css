@@ -1,0 +1,9 @@
+:host([checked]) [part='checkbox']{
+    background-color: #3AE8B6;
+}
+:host(.filter-checkbox) .vaadin-checkbox-container .vaadin-checkbox-wrapper [checked] [part='checkbox']{
+    background-color: #3AE8B6;
+}
+:host(.filter-checkbox .vaadin-checkbox-container) .vaadin-checkbox-wrapper [checked] [part='checkbox']{
+    background-color: #3AE8B6;
+}

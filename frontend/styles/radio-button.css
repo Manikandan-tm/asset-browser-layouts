@@ -1,0 +1,41 @@
+/*
+:host([checked]) [part='radio']{
+    background-color : #3AE8B6;
+}
+
+:host(vaadin-radio-button) .vaadin-radio-button-container{
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    flex-direction: row-reverse;
+}*/
+
+:host([theme~="sort-radio-button"]) ::slotted(vaadin-radio-button) {
+    margin: 5px;
+    align-items: center;
+    display: flex;
+    height: 40px;
+    padding: 5px;
+}
+:host([theme~="sort-radio-button"]) ::slotted(vaadin-radio-button[checked]) {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 10px;
+}
+:host([theme~="sort-radio-button"]::slotted(vaadin-radio-button label)){
+    font-family: 'Poppins',sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #00000099;
+    flex-grow: 1;
+}
+
+:host([theme~="sort-radio-button"]::slotted(vaadin-radio-button[part='radio'])){
+    background-color : #3AE8B6;
+}
+
+:host([theme~="sort-radio-button"]) ::slotted(.vaadin-radio-button-container){
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    flex-direction: row-reverse;
+}
