@@ -1,0 +1,6 @@
+:host(.accuracy-slider) ::slotted(paper-range-slider){
+    background : grey;
+}
+:host{
+    --paper-progress-active-color : black;
+}

@@ -236,7 +236,7 @@ public class AssetBrowser extends VerticalLayout {
     private Component getDialogLayout() {
         final Div div = new Div();
         final Header header = new Header();
-        header.add(getHeaderContent(),getSortList());
+        header.add(getHeaderContent(),getSortList(),getFooter());
         div.add(header);
         return div;
     }
@@ -270,5 +270,16 @@ public class AssetBrowser extends VerticalLayout {
         clearButton.addClickListener(event -> badge.getElement().removeFromParent());
 
         return badge;
+    }
+    private Footer getFooter() {
+        var footer = new Footer();
+        var applyButton = new Button("Apply");
+        applyButton.addThemeVariants(ButtonVariant.LUMO_LARGE);
+        applyButton.addClassName("apply-button");
+
+
+        footer.addClassName("button-footer");
+        footer.add(applyButton);
+        return footer;
     }
 }

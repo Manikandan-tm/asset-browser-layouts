@@ -7,21 +7,21 @@ import com.vaadin.flow.component.datepicker.DatePicker;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Label;
-import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.orderedlayout.FlexLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.router.Route;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 @Route("/tab")
 @CssImport("./styles/filter-style.css")
-@CssImport(value = "./styles/vaadin-tabs.css",themeFor = "vaadin-tabs")
-@CssImport(value = "./styles/vaadin-tab.css",themeFor = "vaadin-tab")
-@CssImport(value = "./styles/vaadin-checkbox.css",themeFor = "vaadin-checkbox")
-@CssImport(value = "./styles/vaadin-datepicker.css",themeFor = "vaadin-date-picker")
+@CssImport(value = "./styles/vaadin-tabs.css", themeFor = "vaadin-tabs")
+@CssImport(value = "./styles/vaadin-tab.css", themeFor = "vaadin-tab")
+@CssImport(value = "./styles/vaadin-checkbox.css", themeFor = "vaadin-checkbox")
+@CssImport(value = "./styles/vaadin-datepicker.css", themeFor = "vaadin-date-picker")
 public class TabSheetView extends FlexLayout {
     /**
      * Contents of the TabSheet.
@@ -34,13 +34,18 @@ public class TabSheetView extends FlexLayout {
         this.buildContentAndTabs();
 
         // tabs component
-        final Tabs tabs = new Tabs();
+        final CustomTabs tabs = CustomTabs
+                .builder()
+                .icon("ssss")
+                .build()
+                .instance();
+
         tabs.setOrientation(Tabs.Orientation.VERTICAL);
         tabs.setWidthFull();
-
+        tabs.getElement().getStyle().set("icon", "abcd");
 
         // show components on the screen
-        this.add(tabs);
+        this.add(tabs.instance());
 
         tabs.addSelectedChangeListener(event -> showTab(event.getSelectedTab()));
 
@@ -59,15 +64,15 @@ public class TabSheetView extends FlexLayout {
     private void buildContentAndTabs() {
 
         for (Tab tab : getTab()) {
-            if(tab.getLabel().equalsIgnoreCase("Template")){
+            if (tab.getLabel().equalsIgnoreCase("Template")) {
                 contents.put(tab, new Div(new Label("template")));
-            }
-            else {
+            } else {
                 contents.put(tab, getUploadDateContent());
             }
         }
 
     }
+
     private Div getUploadDateContent() {
         Checkbox today = new Checkbox("Today");
         today.addClassName("filter-checkbox");
@@ -81,11 +86,12 @@ public class TabSheetView extends FlexLayout {
         customDate.addValueChangeListener(e -> datePickerLayout.setVisible(e.getValue()));
         var contentDiv = new FlexLayout();
         contentDiv.setFlexDirection(FlexLayout.FlexDirection.COLUMN);
-        contentDiv.add(today,yesterday,lastWeek,customDate,getDatePickerLayout());
+        contentDiv.add(today, yesterday, lastWeek, customDate, getDatePickerLayout());
 
         return new Div(contentDiv);
     }
-    private VerticalLayout getDatePickerLayout(){
+
+    private VerticalLayout getDatePickerLayout() {
         DatePicker fromDate = new DatePicker();
         fromDate.setPlaceholder("From");
         fromDate.addThemeName("asset-date-picker");
@@ -98,9 +104,10 @@ public class TabSheetView extends FlexLayout {
         datePickerLayout.getElement().getStyle().set("margin-left", "15px");
         datePickerLayout.removeAll();
         datePickerLayout.setVisible(false);
-        datePickerLayout.add(fromDate,toDate);
+        datePickerLayout.add(fromDate, toDate);
         return datePickerLayout;
     }
+
     private Tab[] getTab() {
         return new Tab[]{
                 getTabDetails("Upload Date"),
@@ -119,6 +126,7 @@ public class TabSheetView extends FlexLayout {
         tab.addThemeName("filter-tab");
         return tab;
     }
+
     private void showTab(Tab tab) {
         Component newContent = contents.get(tab);
         replace(currentContent, newContent);
