@@ -1,0 +1,36 @@
+.home-footer{
+    margin : 15px;
+    border-radius : 100px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 3px 3px 12px #00000029;
+    opacity: 1;
+    width: 333px;
+    height: 54px;
+    display : flex;
+    justify-content : center;
+    align-items : center;
+}
+
+.footer-div{
+    align-items: center;
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.home-page-labels{
+    font-family : 'Poppins',sans-serif;
+    font-weight : 400;
+    font-size : 15px;
+    color : #00000099;
+}
+
+.home-page-values{
+    font-family : 'Poppins',sans-serif;
+    font-weight : 500;
+    font-size : 16px;
+    color : #000000DE;
+}
