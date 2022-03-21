@@ -159,11 +159,11 @@ public class AssetBrowser extends VerticalLayout {
         fileSize.addClassName("file-size-details");
         var fileStorage = new Label("| Phone Storage");
         fileStorage.addClassName("file-size-details");
-
+//
         var uploadDate = new Label("21/02/2022");
         uploadDate.addClassName("file-size-details");
         uploadDate.getElement().getStyle().set("margin-left", "auto");
-
+//
         var fileSizeDetails = new FlexLayout(fileSize, fileStorage,uploadDate);
         fileSizeDetails.setFlexWrap(FlexLayout.FlexWrap.WRAP);
         fileSizeDetails.setAlignContent(FlexLayout.ContentAlignment.CENTER);
@@ -220,7 +220,7 @@ public class AssetBrowser extends VerticalLayout {
         var progressDiv = new Div(progressLayout,progressBar);
         var cardContentDiv = new Div(getFlexLayout(detailsDiv, progressDiv));
         cardContentDiv.addClassName("card-content-div");
-
+//
         var uploadProgressBar = new ProgressBar();
         uploadProgressBar.setValue(0.5);
 
@@ -238,7 +238,7 @@ public class AssetBrowser extends VerticalLayout {
         processedState.getElement().getStyle().set("margin-left", "auto");
 
         var uploadStatus = new FlexLayout(remainingTime,processedState);
-        uploadStatus.setFlexDirection(FlexLayout.FlexDirection.ROW);
+//        uploadStatus.setFlexDirection(FlexLayout.FlexDirection.ROW);
         uploadStatus.setAlignItems(Alignment.CENTER);
 
         var cardMainDiv = new Div(getFlexLayout(fileTypeImage, cardDetails),cardContentDiv,fileSizeDetails,uploadProgressBar,uploadStatus);

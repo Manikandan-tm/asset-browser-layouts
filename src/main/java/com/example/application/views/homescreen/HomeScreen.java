@@ -186,10 +186,12 @@ public class HomeScreen extends VerticalLayout {
         addedFilesDiv.getElement().getStyle().set("border-radius", "40px");
         addedFilesDiv.getElement().getStyle().set("background", "white");
         addedFilesDiv.getElement().getStyle().set("padding", "15px");
+        addedFilesDiv.getElement().getStyle().set("height", "100%");
         addedFilesDiv.add(new Label("Recently added"));
         addedFilesDiv.addClassName("home-page-values");
         return addedFilesDiv;
     }
+
 
 
     private Div getFooter() {
