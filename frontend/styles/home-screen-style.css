@@ -34,3 +34,16 @@
     font-size : 16px;
     color : #000000DE;
 }
+
+.home-button{
+    background: #3AE8B6 0% 0% no-repeat padding-box;
+    box-shadow: 3px 3px 12px #00000029;
+    color : white;
+    border-radius: 100px;
+    cursor: pointer;
+    width: 54px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 54px;
+}
