@@ -23,13 +23,13 @@ public class Slider extends Div {
     private Dialog dialog = new Dialog();
     public Slider(){
 
-//            Button open = new Button("Open dialog");
-//            open.addClickListener(e -> dialog.open());
-//            add(open);
-//
-//            Button close = new Button("Close dialog");
-//            close.addClickListener(e -> dialog.close());
-//            dialog.add(close);
+            Button open = new Button("Open dialog");
+            open.addClickListener(e -> dialog.open());
+            add(open);
+
+            Button close = new Button("Close dialog");
+            close.addClickListener(e -> dialog.close());
+            dialog.add(close);
 //
 //        Grid<String> grid = new Grid<>();
 //        grid.addColumn("Type");
