@@ -21,6 +21,10 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.Objects;
+
 @PageTitle("Asset Browser")
 @Route(value = "/asset")
 @CssImport(value = "./styles/asset-browser-style.css")
@@ -30,6 +34,12 @@ import com.vaadin.flow.router.Route;
 @StyleSheet("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap")
 public class AssetBrowser extends VerticalLayout {
     final SliderComponent slider = SliderComponent.builder().build();
+    public static final String ASSET_BROWSER_VALUES = "asset-browser-values";
+    public static final String ASSET_BROWSER_LABEL = "asset-browser-label";
+    public static final String DETAIL_LIST_DIV = "detail-list-div";
+    public static final String DETAIL_ELEMENT = "aggregate-div";
+    public static final String DETAIL_LABEL = "summary-header-label";
+    public static final String DETAIL_VALUE = "summary-content-label";
     public AssetBrowser(){
         addClassName("asset-main-layout");
         setSizeFull();
@@ -54,7 +64,7 @@ public class AssetBrowser extends VerticalLayout {
         var contentDiv = new Div(searchLayout,searchResultLayout,card);
         contentDiv.addClassName("asset-browser-content");
 
-        add(pageHeader,createDetailLayout(),contentDiv);
+        add(pageHeader,createDetailLayout(),createWebDetailLayout(),contentDiv);
 
     }
 
@@ -296,6 +306,83 @@ public class AssetBrowser extends VerticalLayout {
         clearButton.addClickListener(event -> badge.getElement().removeFromParent());
 
         return badge;
+    }
+    private Div createWebDetailLayout() {
+        var detailList = new Div();
+        //detailList.addClassName("details-list-layout");
+        detailList.getElement().getStyle().set("background","lightgray");
+
+        var detailContainer = new Div();
+
+        var file = new Label("Files");
+        file.addClassNames(DETAIL_LABEL);
+        var fileCount = new Label(String.valueOf("10"));
+        fileCount.addClassNames(DETAIL_VALUE);
+        var fileDiv = new Div(getColumnFlexLayout(file, fileCount));
+        fileDiv.addClassName(DETAIL_ELEMENT);
+
+        var wip = new Label("WIP");
+        wip.addClassNames(DETAIL_LABEL);
+        var wipValue = new Label("10");
+        wipValue.addClassNames(DETAIL_VALUE);
+        var wipDiv = new Div(getColumnFlexLayout(wip, wipValue));
+        wipDiv.addClassName(DETAIL_ELEMENT);
+
+            var xAvgFileSize = BigDecimal.valueOf(872652562).setScale(2, RoundingMode.HALF_DOWN);
+            var avgSize = new Label("Avg.Size");
+            avgSize.addClassName(ASSET_BROWSER_LABEL);
+            var avgSizeValue = new Label(xAvgFileSize + "MB");
+            avgSizeValue.addClassName(ASSET_BROWSER_VALUES);
+            detailContainer.add(getFlexLayout(avgSize, avgSizeValue));
+
+            var avgPages = new Label("Avg.Pages");
+            var xAvgPagesCount = BigDecimal.valueOf(10).setScale(2, RoundingMode.HALF_DOWN);
+            avgPages.addClassName(ASSET_BROWSER_LABEL);
+            var avgPagesCountLabel = new Label(String.valueOf(xAvgPagesCount));
+            avgPagesCountLabel.addClassName(ASSET_BROWSER_VALUES);
+            detailContainer.add(getFlexLayout(avgPages, avgPagesCountLabel));
+
+            var actuals = new Label("Actuals");
+            actuals.addClassNames(DETAIL_LABEL);
+            var xActualsValue = BigDecimal.valueOf(8)
+                    .setScale(2, RoundingMode.HALF_DOWN);
+            var actualsValue = new Label(String.valueOf(xActualsValue));
+            actualsValue.addClassNames(DETAIL_VALUE);
+            var actualsDiv = new Div(getColumnFlexLayout(actuals, actualsValue));
+            actualsDiv.addClassName(DETAIL_ELEMENT);
+
+            var blanks = new Label("Blanks");
+            blanks.addClassNames(DETAIL_LABEL);
+            var blanksValue = new Label(String.valueOf(7));
+            blanksValue.addClassNames(DETAIL_VALUE);
+            var blanksDiv = new Div(getColumnFlexLayout(blanks, blanksValue));
+            blanksDiv.addClassName(DETAIL_ELEMENT);
+
+//            summary.getAttributionCount().forEach((attribution, aDouble) -> {
+//                if (aDouble > 0d) {
+//                    var label = attribution.name().replace("_", " ");
+//                    var attributionLabel = new Label();
+//                    if (Objects.equals(label, "MULTI LINE ITEM TABLE"))
+//                        attributionLabel.setText("Table");
+//                    else attributionLabel.setText(label);
+//                    attributionLabel.addClassName(ASSET_BROWSER_LABEL);
+//                    var attributionValue = new Label(String.valueOf(BigDecimal.valueOf(aDouble)
+//                            .setScale(2, RoundingMode.HALF_DOWN)));
+//                    attributionValue.addClassName(ASSET_BROWSER_VALUES);
+//                    detailList.add(getFlexLayout(attributionLabel, attributionValue));
+//                }
+//
+//            });
+        var detailsElement = new FlexLayout(fileDiv,wipDiv,actualsDiv,blanksDiv);
+        detailsElement.setFlexWrap(FlexLayout.FlexWrap.WRAP);
+        detailList.add(detailContainer,detailsElement);
+        return detailList;
+    }
+    private FlexLayout getColumnFlexLayout(Component labelDetail, Component labelValues) {
+        var flexLayout = new FlexLayout(labelDetail,labelValues);
+        flexLayout.setFlexDirection(FlexLayout.FlexDirection.COLUMN);
+        flexLayout.setAlignContent(FlexLayout.ContentAlignment.CENTER);
+        return flexLayout;
     }
     private Footer getFooter() {
         var footer = new Footer();

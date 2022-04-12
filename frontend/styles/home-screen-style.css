@@ -47,3 +47,37 @@
     align-items: center;
     height: 54px;
 }
+
+.scrollbar-container::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-container {
+    padding-left: 15px;
+    white-space: nowrap;
+    overflow-y: hidden;
+    overflow-x: auto;
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+}
+.my-progress{
+  position: relative;
+  width: 112px;
+  height: 20px;
+  display: flex;
+  align-items : center;
+}
+.my-progress > .my-progress-bar{
+    width:16px;
+    height:16px;
+    margin-left:5px;
+    border:1px solid #291;
+    border-radius: 5px;
+}
+
+.active{
+  background: #3AE8B6 0% 0% no-repeat padding-box;
+}
+.semi{
+    background: linear-gradient(90deg,#3AE8B6 50%,#fff 50%);
+}

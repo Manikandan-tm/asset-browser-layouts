@@ -173,3 +173,23 @@
     align-items : center;
     margin-left : 30px;
 }
+.aggregate-div{
+    display: flex;
+    flex-direction: column;
+    height: 166px;
+    width: 166px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    margin: 5px;
+    }
+    .summary-header-label{
+        font: normal normal bold 16px Poppins;
+        color: #0041AA;
+    }
+
+    .summary-content-label{
+        font: normal normal bold 16px Poppins;
+        color : #212121;
+    }

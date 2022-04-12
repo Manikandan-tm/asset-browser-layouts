@@ -18,10 +18,6 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.progressbar.ProgressBar;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-import in.zuci.halo.dl.core.dao.info.UserInfo;
-import in.zuci.halo.dl.core.dto.DashboardDto;
-import in.zuci.halo.dl.core.dto.UserInfoDto;
-import in.zuci.halo.dl.core.resource.asset.HaloAssetResource;
 
 @PageTitle("Asset Details")
 @Route("/asset-details")

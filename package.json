@@ -3,6 +3,7 @@
   "license": "UNLICENSED",
   "dependencies": {
     "@belomx/paper-range-slider": "1.0.3",
+    "@flowingcode/font-awesome-iron-iconset": "3.0.0",
     "@polymer/iron-icon": "3.0.1",
     "@polymer/iron-iconset-svg": "3.0.1",
     "@polymer/iron-list": "3.1.0",
@@ -275,11 +276,13 @@
     "@vaadin/vaadin-element-mixin": "$@vaadin/vaadin-element-mixin",
     "@vaadin/vaadin-control-state-mixin": "$@vaadin/vaadin-control-state-mixin",
     "line-awesome": "$line-awesome",
+    "@flowingcode/font-awesome-iron-iconset": "$@flowingcode/font-awesome-iron-iconset",
     "@polymer/paper-ripple": "$@polymer/paper-ripple"
   },
   "vaadin": {
     "dependencies": {
       "@belomx/paper-range-slider": "1.0.3",
+      "@flowingcode/font-awesome-iron-iconset": "3.0.0",
       "@polymer/iron-icon": "3.0.1",
       "@polymer/iron-iconset-svg": "3.0.1",
       "@polymer/iron-list": "3.1.0",
@@ -421,6 +424,6 @@
       "workbox-precaching": "6.5.0",
       "workbox-webpack-plugin": "6.5.0"
     },
-    "hash": "82299461a27ae61bcf4f490cc7c4a20f809ed7659fa4854f3d997b1efe9c1680"
+    "hash": "7ce1db2d2deff799e4db0947b52a151951d812ce9557c5e1d3b33f030dc9c89c"
   }
 }
